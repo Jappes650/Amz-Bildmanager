@@ -9,7 +9,7 @@ import zipfile
 # Funktion zum Überprüfen, ob eine URL gültig ist
 def is_valid_url(url):
     return isinstance(url, str) and (url.startswith("http://") or url.startswith("https://"))
-
+    
 # Funktion zum Herunterladen eines Bildes
 def download_image(url, destination):
     try:
