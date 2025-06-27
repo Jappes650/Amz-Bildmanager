@@ -6,6 +6,7 @@ from tkinter import ttk
 import threading
 import zipfile
 
+
 # Funktion zum Überprüfen, ob eine URL gültig ist
 def is_valid_url(url):
     return isinstance(url, str) and (url.startswith("http://") or url.startswith("https://"))
