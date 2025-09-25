@@ -2,33 +2,24 @@ name: Build Windows EXE
 
 on:
   push:
-    branches:
-      - main          # oder "master", je nach deinem Default-Branch
     paths:
-      - '*.py'        # Root-Python-Dateien
-      - '**/*.py'     # Python-Dateien in Unterordnern
-      - 'requirements.txt'
+      - '**.py'
 
 jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-
+      - uses: actions/checkout@v2
       - name: Install Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - name: Install dependencies
         run: pip install -r requirements.txt
-
       - name: Install pyinstaller
         run: pip install pyinstaller
-
       - name: Build EXE
         run: pyinstaller --noconsole --onefile --version-file=version_info.txt main.py
-
       - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
